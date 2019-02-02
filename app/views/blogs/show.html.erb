@@ -1,3 +1,4 @@
+<%= render "pages/header" %>
 <p>
   Title:
   <%= @blog.title %>
@@ -10,7 +11,7 @@
 
 <p>
   Author:
-  <%= @blog.author %>
+  <%= @blog.user %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
