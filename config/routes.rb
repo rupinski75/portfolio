@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :picture_tags
+  resources :tags
+  resources :pictures
+  resources :comments
+  resources :users
   resources :galleries
   get 'pages/home'
   get 'pages/about'
