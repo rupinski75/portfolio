@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_100132) do
+ActiveRecord::Schema.define(version: 2019_02_02_082457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,15 @@ ActiveRecord::Schema.define(version: 2019_02_01_100132) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.string "author"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "resource_id"
+    t.integer "resource_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +34,38 @@ ActiveRecord::Schema.define(version: 2019_02_01_100132) do
   create_table "galleries", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "picture_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer "gallery_id"
+    t.string "size"
+    t.string "image_link"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.string "name"
+    t.bit "is_confirmed", limit: 1
+    t.integer "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
