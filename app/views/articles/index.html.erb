@@ -1,11 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
   <%= render "pages/header" %>
-<h1>Articles</h1>
+</head>
+<body>
 
+<div class="row">
+    <div class="card">
+      <h2>Articles</h2>
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Body</th>
+      <th></th>
       <th>Author</th>
       <th colspan="3"></th>
     </tr>
@@ -14,17 +21,18 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
+        <td class="title"><div class="t1"><%= article.title %></div>
+        <br><%= article.body %></td>
         <td><%= article.user.name %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete%>
       </tr>
     <% end %>
+  </td>
+</tr>
   </tbody>
 </table>
 
-<br>
 
 <%= link_to 'New Article', new_article_path %>
