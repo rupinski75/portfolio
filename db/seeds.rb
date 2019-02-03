@@ -1,6 +1,6 @@
 User.create!(
   email: "rupinski.k@gmail.com",
-  password: "1234",
+  password: "123456",
   name: "Krzysztof Rupiński",
   is_confirmed: 1,
   user_type: 1
