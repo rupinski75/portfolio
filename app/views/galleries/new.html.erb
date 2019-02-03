@@ -1,0 +1,28 @@
+<%= render 'pages/header' %>
+
+<%= form_for(@gallery) do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Author %>
+    <%= form.text_field :user_id  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Image %>
+    <%= form.text_field :thumb_image  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
