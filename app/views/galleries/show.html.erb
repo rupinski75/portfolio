@@ -1,0 +1,5 @@
+<%= render 'pages/header' %>
+<p> <%= image_tag @gallery.thumb_image %> </p>
+<p> <%= @gallery.title %> </p>
+<p> <%= @gallery.description %> </p>
+<p><%= link_to 'Edit', edit_gallery_path(@gallery) %></p

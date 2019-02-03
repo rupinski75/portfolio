@@ -3,8 +3,8 @@
 <p><%= link_to 'Create new Gallery', new_gallery_path %></p>
 
 <% @galleries.each do |gallery| %>
-  <p><%= gallery.title %> </p>
+  <p><%= link_to gallery.title, gallery_path(gallery) %> </p>
   <p><%= gallery.description %> </p>
   <%= image_tag gallery.thumb_image %>
-  <p><%= link_to 'Edit', edit_gallery_path(gallery.id) %></p>
+  <p><%= link_to 'Edit', edit_gallery_path(gallery) %></p>
 <% end %>
