@@ -1,0 +1,6 @@
+<%= render 'pages/header' %>
+<% @galleries.each do |gallery| %>
+  <p><%= gallery.title %> </p>
+  <p><%= gallery.description %> </p>
+  <%= image_tag gallery.thumb_image %>
+<% end %>
