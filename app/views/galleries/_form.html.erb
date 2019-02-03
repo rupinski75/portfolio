@@ -1,6 +1,6 @@
 <%= form_for(@gallery) do |form| %>
 
-<% gallery.errors.full_messages.each do |message| %>
+<% @gallery.errors.full_messages.each do |message| %>
   <li><%= message %></li>
 <% end %>
 
@@ -20,9 +20,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :Image %>
+    <%= form.label :Thumbamil %>
     <%= form.text_field :thumb_image  %>
   </div>
+
+  <ul>
+    <%= form.fields_for :pictures do |pictures_form|%>
+      <li>
+        <%= pictures_form.label :Image_link %>
+        <%= pictures_form.text_field :image_link %>
+        <%= pictures_form.label :Size %>
+        <%= pictures_form.text_field :size %>
+      </li>
+    <% end %>
+  </ul>
 
   <div class="actions">
     <%= form.submit %>

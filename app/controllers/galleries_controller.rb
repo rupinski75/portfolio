@@ -11,6 +11,7 @@ class GalleriesController < ApplicationController
 
   def new
     @gallery = Gallery.new
+    3.times { @gallery.pictures.build }
   end
 
   def create
@@ -51,6 +52,6 @@ class GalleriesController < ApplicationController
     end
 
     def gallery_params
-      params.require(:gallery).permit(:title, :description, :thumb_image, :user_id)
+      params.require(:gallery).permit(:title, :description, :thumb_image, :user_id, pictures_attributes: [:size, :image_link])
     end
 end
