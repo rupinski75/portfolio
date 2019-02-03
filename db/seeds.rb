@@ -30,4 +30,36 @@ end
 puts "3 galleries created"
 
 
+3.times do |picture|
+  Picture.create(
+    size: '350x200',
+    image_link: "https://via.placeholder.com/350x200",
+    description: "Description",
+    gallery_id: "0"
+    )
+end
+
+3.times do |picture|
+  Picture.create(
+    size: '350x200',
+    image_link: "https://via.placeholder.com/350x200",
+    description: "Description",
+    gallery_id: "1"
+    )
+end
+
+3.times do |picture|
+  Picture.create(
+    size: '350x200',
+    image_link: "https://via.placeholder.com/350x200",
+    description: "Description",
+    gallery_id: "2"
+    )
+end
+
+puts "3 pictures into 3 gallery created"
+
+
+
+
 

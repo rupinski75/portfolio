@@ -6,6 +6,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
+    @pictures = Picture.where(gallery_id: @gallery)
   end
 
   def new
