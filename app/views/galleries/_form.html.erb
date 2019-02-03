@@ -1,5 +1,9 @@
 <%= form_for(@gallery) do |form| %>
 
+<% gallery.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
