@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: [:show, :update, :edit]
+  before_action :set_gallery, only: [:show, :update, :edit, :destroy]
 
   def index
     @galleries = Gallery.all
@@ -34,6 +34,13 @@ class GalleriesController < ApplicationController
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+    @gallery.destroy
+    respond_to do |format|
+      format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
     end
   end
 
