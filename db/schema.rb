@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.integer "user_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
   create_table "galleries", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
+    t.string "description"
+    t.string "thumb_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
