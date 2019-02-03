@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: [:show]
+  before_action :set_gallery, only: [:show, :update, :edit]
 
   def index
     @galleries = Gallery.all
@@ -20,6 +20,19 @@ class GalleriesController < ApplicationController
         format.html { redirect_to galleries_path, notice: 'Gallery was created.' }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @gallery.update(gallery_params)
+        format.html { redirect_to galleries_path, notice: 'Gallery was updated.' }
+      else
+        format.html { render :edit }
       end
     end
   end
