@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_082457) do
+ActiveRecord::Schema.define(version: 2019_02_03_045321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,26 +18,28 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "resource_id"
-    t.integer "resource_type"
+    t.integer "picture_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "galleries", force: :cascade do |t|
-    t.integer "user_id"
     t.string "title"
     t.string "description"
     t.string "thumb_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "picture_tags", force: :cascade do |t|
@@ -48,12 +50,13 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.integer "gallery_id"
     t.string "size"
     t.string "image_link"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gallery_id"
+    t.index ["gallery_id"], name: "index_pictures_on_gallery_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -72,4 +75,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "users"
+  add_foreign_key "galleries", "users"
+  add_foreign_key "pictures", "galleries"
 end
