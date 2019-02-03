@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :password
       t.string :name
-      t.bit :is_confirmed
-      t.integer :user_type
+      t.integer :is_confirmed, default: 0
+      t.integer :user_type, default: 0
 
       t.timestamps
     end

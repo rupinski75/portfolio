@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2019_02_02_082457) do
     t.string "email"
     t.string "password"
     t.string "name"
-    t.bit "is_confirmed", limit: 1
-    t.integer "user_type"
+    t.integer "is_confirmed", default: 0
+    t.integer "user_type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
