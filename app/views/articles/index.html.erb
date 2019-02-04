@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <%= render "pages/header" %>
-</head>
-<body>
-
 <div class="row">
     <div class="card">
       <h2>Articles</h2>
 <table>
-
-
   <tbody>
     <% @articles.each do |article| %>
       <tr>
@@ -23,8 +14,6 @@
         <td class="Destroy"><%= link_to 'Destroy', article, method: :delete%></td>
       </tr>
     <% end %>
-  </td>
-</tr>
   </tbody>
 </table>
 

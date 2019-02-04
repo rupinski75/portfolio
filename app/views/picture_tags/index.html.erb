@@ -1,5 +1,8 @@
-<%= render 'pages/header' %>
 <% @picture_tags.each do |tag| %>
-<%= tag %>
+<p>
+  <%= tag.picture_id %>
+  <%= tag.tag_id %>
+  <%= tag.created_at%>
+</p>
 <% end %>
 
