@@ -1,0 +1,9 @@
+<%= render 'pages/header' %>
+<%= link_to 'Create new comment', new_comment_path %>
+<% @comments.each do |comment| %>
+  <%= comment.body %>
+  <%=  "picture_id:  #{comment.picture_id}" %>
+  <%=  "user_id:  #{comment.user_id}" %>
+<%= link_to 'Edit', edit_comment_path(comment) %>
+<% end %>
+

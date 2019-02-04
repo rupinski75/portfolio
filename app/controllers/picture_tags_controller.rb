@@ -1,5 +1,5 @@
 class PictureTagsController < ApplicationController
   def index
-    @picture_tags = Picture_tag.all
+    @picture_tags = PictureTag.all
   end
 end
