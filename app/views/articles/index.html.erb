@@ -1,21 +1,12 @@
 <div class="row">
-    <div class="card">
-      <h2>Articles</h2>
-<table>
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td class="title"><div class="t1"><%= article.title %></div>
-        <br><%= article.body %>
-        <br>
-        <div class="t1"><%= article.user.name %></div></td>
-        <td class="Show"><%= link_to 'Show', article %>
-        <td class="Edit"><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td class="Destroy"><%= link_to 'Destroy', article, method: :delete%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <div class="card">
+    <h2>Articles</h2>
+      <% @articles.each do |article| %>
+        <h3 class="title"><%= link_to article.title, article %></h3>
+        <%= article.body %>
+        <div class="t1"><%= article.user.name %></div>
+      <% end %>
+  </div>
+</div>
 
 <%= link_to 'New Article', new_article_path %>

@@ -1,11 +1,14 @@
-<div class="row">
-  <%= link_to 'Create new Gallery', new_gallery_path %>
-  <% @galleries.each do |gallery| %>
-    <div class="gallery">
-      <%= image_tag gallery.thumb_image %>
-        <%= link_to gallery.title, gallery_path(gallery) %>
-        <%= gallery.description %>
-        <%= link_to 'Edit', edit_gallery_path(gallery) %>
+
+<div class="container">
+      <% @galleries.each do |gallery| %>
+        <div class="gallery-picture">
+          <p><%= image_tag gallery.thumb_image %></p>
+          <%= link_to gallery.title, gallery_path(gallery) %>
+          <p><%= gallery.description %>
+          <% if current_user %>
+            | <%= link_to 'Create new Gallery', new_gallery_path %>
+            | <%= link_to 'Edit', edit_gallery_path(gallery) %></p>
+          <% end %>
         </div>
   <% end %>
 </div>

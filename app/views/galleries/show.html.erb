@@ -1,21 +1,20 @@
-<p> <%= @gallery.title %> </p>
-<div class="row">
-  <% @pictures.each do |picture| %>
-    <div class="gallery">
-
+<%= @gallery.title %>
+<div class="container">
+    <% @pictures.each do |picture| %>
+      <div class="gallery">
         <%= link_to picture_path() do %>
-             <%= image_tag picture.image_link %>
-         <% end %>
-
-      <div><%= picture.description %></div>
-      <div>
-        <% picture.tags.each do |tag| %>
-          <%= tag.name %>
+          <%= image_tag picture.image_link %>
         <% end %>
+        <%= picture.description %>
+          <% picture.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>
-<p> <%= @gallery.description %> </p>
-<p><%= link_to 'Edit', edit_gallery_path(@gallery) %></p>
-<p><%= link_to 'Destroy', @gallery_path, method: :delete %></p>
+  <p> <%= @gallery.description %> </p>
+<% if current_user %>
+  <p><%= link_to 'Edit', edit_gallery_path(@gallery) %></p>
+  <p><%= link_to 'Destroy', @gallery_path, method: :delete %></p>
+<% else %>
+<% end %>

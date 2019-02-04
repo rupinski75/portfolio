@@ -2,19 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.gallery {
-  float: right;
-  width: 33.33%;
-}
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content:  space-evenly;
 }
