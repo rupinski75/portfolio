@@ -1,0 +1,7 @@
+<%= render 'pages/header' %>
+<%= link_to 'Create new tag', new_tag_path %>
+<% @tags.each do |tag| %>
+<%= tag.name %>
+<%= link_to 'Edit', edit_tag_path(tag) %>
+<% end %>
+

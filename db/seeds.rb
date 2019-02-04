@@ -19,7 +19,7 @@ puts "10 articles created"
 puts "1 user created"
 
 3.times do |gallery|
-  Gallery.create(
+  Gallery.create!(
     user_id: '1',
     title: "My #{gallery} gallery",
     description: "To jest opis",
@@ -31,35 +31,59 @@ puts "3 galleries created"
 
 
 3.times do |picture|
-  Picture.create(
+  Picture.create!(
     size: '350x200',
     image_link: "https://via.placeholder.com/350x200",
     description: "Description",
-    gallery_id: "0"
+    gallery_id: 1
     )
 end
 
 3.times do |picture|
-  Picture.create(
+  Picture.create!(
     size: '350x200',
     image_link: "https://via.placeholder.com/350x200",
     description: "Description",
-    gallery_id: "1"
+    gallery_id: 2
     )
 end
 
-3.times do |picture|
-  Picture.create(
+10.times do |picture|
+  Picture.create!(
     size: '350x200',
     image_link: "https://via.placeholder.com/350x200",
     description: "Description",
-    gallery_id: "2"
+    gallery_id: 3
     )
 end
 
 puts "3 pictures into 3 gallery created"
 
+10.times do |tag|
+  Tag.create!(
+    name: "Tag #{tag}"
+    )
+end
+
+puts "10 tags created"
 
 
+10.times do |picture_tag|
+  PictureTag.create!(
+      tag_id: picture_tag+1,
+      picture_id: picture_tag+1
+    )
+  puts picture_tag
+end
 
+puts "10 picture tags created"
 
+10.times do |comment|
+  Comment.create!(
+      body: "To jest komentarz #{comment}",
+      picture_id: comment+1,
+      user_id: 1
+    )
+end
+
+puts "10 comments created"

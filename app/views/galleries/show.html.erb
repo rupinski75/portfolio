@@ -1,12 +1,14 @@
 <%= render 'pages/header' %>
 
 <p> <%= @gallery.title %> </p>
-
-<% @pictures.each do |picture| %>
-  <%= image_tag picture.image_link %>
-  <%= picture.description %>
-<% end %>
-
+<div class="row">
+  <% @pictures.each do |picture| %>
+  <div class="gallery">
+    <div><%= image_tag picture.image_link %></div>
+    <div><%= picture.description %></div  >
+  </div>
+  <% end %>
+</div>
 <p> <%= @gallery.description %> </p>
 <p><%= link_to 'Edit', edit_gallery_path(@gallery) %></p>
 <p><%= link_to 'Destroy', @gallery_path, method: :delete %></p>

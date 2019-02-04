@@ -1,25 +1,37 @@
 <%= form_with(model: article, local: true) do |form| %>
 
+<script type="text/javascript">
+  function validateForm(inputId) {
+  var x = document.forms["field"][inputId].value;
+  if (x == "") {
+    alert("Field must be filled out");
+    return false;
+  }
+}
+</script>
+
 <% article.errors.full_messages.each do |message| %>
   <li><%= message %></li>
 <% end %>
+  <form id="field" autocomplete="off" onblur="validateForm('')">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body %>
+    </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
+    <div class="field">
+      <%= form.label :Author %>
+      <%= form.text_field :user_id  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :Author %>
-    <%= form.text_field :user_id  %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</form>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
