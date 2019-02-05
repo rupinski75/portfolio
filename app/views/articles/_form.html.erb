@@ -1,19 +1,9 @@
-<%= form_with(model: article, local: true) do |form| %>
+<%= form_with model: article, local: true, validate: true do |form| %>
 
-<script type="text/javascript">
-  function validateForm(inputId) {
-  var x = document.forms["field"][inputId].value;
-  if (x == "") {
-    alert("Field must be filled out");
-    return false;
-  }
-}
-</script>
+  <% article.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
 
-<% article.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-  <form id="field" autocomplete="off" onblur="validateForm('')">
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>
@@ -32,6 +22,5 @@
     <div class="actions">
       <%= form.submit %>
     </div>
-  <% end %>
-</form>
+<% end %>
 

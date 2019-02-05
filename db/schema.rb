@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2019_02_03_073207) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "is_confirmed", default: 0
-    t.integer "user_type", default: 0
+    t.boolean "is_confirmed", default: false
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

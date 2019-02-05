@@ -1,10 +1,11 @@
-User.create!(
+@user = User.create!(
   email: "rupinski.k@gmail.com",
   password: "123456",
   name: "Krzysztof Rupiński",
   is_confirmed: 1,
-  user_type: 1
+  admin: true
   )
+@user.confirm
 
 10.times do |article|
   Article.create!(
