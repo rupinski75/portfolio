@@ -1,0 +1,8 @@
+<h1>Editing Article</h1>
+<% if current_user%>
+  <%= render 'form', comment: @comment %>
+<% else %>
+  <p> You don't have permission to view this page </p>
+<% end %>
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>

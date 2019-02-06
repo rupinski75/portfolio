@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
   def show
     @comments = @article.comments.order(created_at: :desc)
+    @user = current_user
+    puts @user
   end
 
   def new

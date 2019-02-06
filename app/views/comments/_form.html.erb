@@ -1,6 +1,6 @@
-<%= form_with model: comment, local: true, validate: true do |form| %>
+<%= form_with model: [@article, @comment], local: true, validate: true do |form| %>
 
-  <% comment.errors.full_messages.each do |message| %>
+  <% @comment.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 

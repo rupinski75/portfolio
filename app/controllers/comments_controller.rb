@@ -9,17 +9,24 @@ before_action :set_comment, only: [:show, :update, :edit, :destroy]
   end
 
   def new
-    @comment = Comment.new
     @article = Article.find(params[:article_id])
+    #@user = User.find(params[:user_id])
+
+    @comment = @article.comments.new
+    puts @comment.inspect
   end
 
   def create
-        @comment = @article.comments.create(params[:comment].permit(:comment))
+        @article = Article.find(params[:article_id])
+        puts @article.id
+        @user = User.find(current_user.id)
+        puts @user.id
+        @comment = @article.comments.create(comment_params.merge(user: current_user))
         redirect_to article_path(@article)
   end
 
   def edit
-    @article = Article.find(params[:article_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
@@ -42,7 +49,6 @@ before_action :set_comment, only: [:show, :update, :edit, :destroy]
   private
     def set_comment
       @comment = Comment.find(params[:id])
-      @user = User.find(:user_id)
 
     end
 

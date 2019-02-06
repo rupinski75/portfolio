@@ -1,8 +1,8 @@
   <% if current_user.admin?%>
     <%= link_to 'Articles', articles_path%>
-    <%= link_to 'Comments', comments_path%>
     <%= link_to 'Galleries', galleries_path%>
     <%= link_to 'Pictures', pictures_path%>
+    <%= link_to 'Pictures tags', picture_tags_path%>
     <%= link_to 'Tags', tags_path%>
     <%= link_to 'Users', users_path%>
     <% else %>
