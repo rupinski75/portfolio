@@ -1,0 +1,21 @@
+<% if current_user && current_user.admin?%>
+    <%= link_to 'Create new picture', new_picture_path %>
+    <div class="container">
+      <% @pictures.each do |picture| %>
+        <div class="gallery">
+            <%= link_to picture_path(picture) do %>
+              <%= image_tag picture.image_link %>
+            <% end %>
+          <p class="desc">
+            <%= picture.size %>
+            <%= picture.description %>
+            <%= link_to 'Edit', edit_picture_path(picture) %>
+            <%= link_to 'Destroy', picture, method: :delete %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+<% else %>
+  <p> You don't have permission to view this page </p>
+<% end %>
+

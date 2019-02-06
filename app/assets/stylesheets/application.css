@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ input, textarea, select, button {
+  border  : none;
+  padding : 0 10px;
+  margin  : 0;
+  width   : 240px;
+  box-sizing: border-box;
+}

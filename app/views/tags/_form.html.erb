@@ -1,0 +1,16 @@
+<%= form_with model: tag, local: true, validate: true do |form| %>
+
+  <% tag.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>
+

@@ -1,8 +1,10 @@
-<%= link_to 'Create new comment', new_comment_path %>
+<%= link_to 'Create new comment', new_article_comment_path %>
 <% @comments.each do |comment| %>
+<p>
   <%= comment.body %>
-  <%=  "picture_id:  #{comment.picture_id}" %>
+  <%=  "article_id:  #{comment.article_id}" %>
   <%=  "user_id:  #{comment.user_id}" %>
-<%= link_to 'Edit', edit_comment_path(comment) %>
+<%= link_to 'Edit', edit_article_comment_path(comment) %>
+</p>
 <% end %>
 

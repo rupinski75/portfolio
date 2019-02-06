@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  validates_presence_of :user_id, :body, :picture_id
+  validates_presence_of :user_id, :body
+  belongs_to :article
   belongs_to :user
-  belongs_to :picture
 end

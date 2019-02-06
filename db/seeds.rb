@@ -1,10 +1,18 @@
-@user = User.create!(
+@user1 = User.create!(
   email: "rupinski.k@gmail.com",
   password: "123456",
   name: "Krzysztof Rupiński",
   admin: true
   )
-@user.confirm
+@user1.confirm
+
+@user2 = User.create!(
+  email: "s11898@pjatk.edu.pl",
+  password: "123456",
+  name: "Adrian Powierża",
+  admin: false
+  )
+@user2.confirm
 
 10.times do |article|
   Article.create!(
@@ -60,20 +68,25 @@ end
 
 puts "10 pictures into 3 gallery created"
 
-10.times do |tag|
-  Tag.create!(
-    name: "Tag #{tag}"
-    )
-end
+Tag.create!(name: '#Podróże')
+Tag.create!(name: '#Góry')
+Tag.create!(name: '#Sport')
+Tag.create!(name: '#Jedzenie')
+Tag.create!(name: '#Zawody')
+Tag.create!(name: '#Hobby')
+Tag.create!(name: '#Sztuka')
+Tag.create!(name: '#Architektura')
+Tag.create!(name: '#Malarstwo')
+Tag.create!(name: '#Fotografia')
+
 
 puts "10 tags created"
 
 
-10.times do |picture_tag|
-  puts Random.rand(1..3)
+30.times do |picture_tag|
   PictureTag.create!(
       tag_id: Random.rand(1..10),
-      picture_id: Random.rand(1..10)
+      picture_id: Random.rand(1..30)
     )
   puts picture_tag
 end
@@ -81,11 +94,14 @@ end
 puts "10 picture tags created"
 
 10.times do |comment|
-  Comment.create!(
+  puts Comment.create!(
       body: "To jest komentarz #{comment}",
-      picture_id: Random.rand(1..10),
-      user_id: 1
+      article_id: Random.rand(1..10),
+      user_id: Random.rand(1..2)
     )
 end
 
 puts "10 comments created"
+
+
+

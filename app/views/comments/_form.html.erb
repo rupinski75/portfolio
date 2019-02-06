@@ -1,0 +1,17 @@
+<%= form_with model: comment, local: true, validate: true do |form| %>
+
+  <% comment.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_field :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
+<% end %>
+

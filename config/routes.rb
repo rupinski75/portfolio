@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :picture_tags
   resources :tags
   resources :pictures
-  resources :comments
   resources :users
   resources :galleries
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
