@@ -1,4 +1,4 @@
-<p>
+  <p>
   Title:
   <%= @article.title %>
 </p>
@@ -20,7 +20,7 @@
     <%= comment.body %>
     <p> <%= comment.user.name %> |
     <%= comment.created_at %> |
-    <%= link_to 'Edit', edit_article_comment_path(comment) %>
+    <%= link_to 'Edit', edit_article_comment_path(@article) %>
 
     </p>
 

@@ -18,15 +18,16 @@ before_action :set_comment, only: [:show, :update, :edit, :destroy]
 
   def create
         @article = Article.find(params[:article_id])
-        puts @article.id
+        #puts @article.id
         @user = User.find(current_user.id)
-        puts @user.id
+        #puts @user.id
         @comment = @article.comments.create(comment_params.merge(user: current_user))
         redirect_to article_path(@article)
   end
 
   def edit
-    @comment = Comment.find(params[:id])
+    @article = Article.find(params[:article_id])
+    #@comment = @article.comments.find(:id)
   end
 
   def update
