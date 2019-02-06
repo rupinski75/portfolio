@@ -1,5 +1,9 @@
 <h1>New Article</h1>
+  <% if current_user && current_user.admin?%>
+    <%= render 'form', article: @article %>
+  <% else %>
+    <p> You don't have permission to view this page </p>
+  <% end %>
 
-<%= render 'form', article: @article %>
 
 <%= link_to 'Back', articles_path %>

@@ -2,10 +2,11 @@
 <div class="container">
       <% @galleries.each do |gallery| %>
         <div class="gallery-picture">
-          <p><%= image_tag gallery.thumb_image %></p>
-          <%= link_to gallery.title, gallery_path(gallery) %>
+          <p><%= link_to gallery_path(gallery) do %>
+            <%= image_tag gallery.thumb_image %></p>
+          <% end %>
           <p><%= gallery.description %>
-          <% if current_user.admin? %>
+          <% if current_user && current_user.admin?%>
             | <%= link_to 'Create new Gallery', new_gallery_path %>
             | <%= link_to 'Edit', edit_gallery_path(gallery) %></p>
           <% end %>

@@ -1,2 +1,8 @@
 <div><%= image_tag @picture.image_link %></div>
 <div><%= @picture.description %> </div>
+<p class="desc">
+  <% @picture.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+ </p>
+ <%= link_to 'Back to galleries', galleries_path%>

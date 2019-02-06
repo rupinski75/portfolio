@@ -2,7 +2,6 @@
   email: "rupinski.k@gmail.com",
   password: "123456",
   name: "Krzysztof Rupiński",
-  is_confirmed: 1,
   admin: true
   )
 @user.confirm
@@ -31,16 +30,17 @@ end
 puts "3 galleries created"
 
 
-3.times do |picture|
-  Picture.create!(
+10.times do |picture|
+  puts Picture.create!(
     size: '350x200',
     image_link: "https://via.placeholder.com/350x200",
     description: "Description",
     gallery_id: 1
     )
+
 end
 
-3.times do |picture|
+10.times do |picture|
   Picture.create!(
     size: '350x200',
     image_link: "https://via.placeholder.com/350x200",
@@ -58,7 +58,7 @@ end
     )
 end
 
-puts "3 pictures into 3 gallery created"
+puts "10 pictures into 3 gallery created"
 
 10.times do |tag|
   Tag.create!(
@@ -70,9 +70,10 @@ puts "10 tags created"
 
 
 10.times do |picture_tag|
+  puts Random.rand(1..3)
   PictureTag.create!(
-      tag_id: picture_tag+1,
-      picture_id: picture_tag+1
+      tag_id: Random.rand(1..10),
+      picture_id: Random.rand(1..10)
     )
   puts picture_tag
 end
@@ -82,7 +83,7 @@ puts "10 picture tags created"
 10.times do |comment|
   Comment.create!(
       body: "To jest komentarz #{comment}",
-      picture_id: comment+1,
+      picture_id: Random.rand(1..10),
       user_id: 1
     )
 end

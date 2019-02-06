@@ -12,7 +12,7 @@
   Author:
   <%= @article.user.name %>
 </p>
-<% if current_user.admin? %>
+<% if current_user && current_user.admin?%>
   <%= link_to 'Edit', edit_article_path(@article) %> |
   <%= link_to 'Destroy', @article, method: :delete%> |
 <% end %>

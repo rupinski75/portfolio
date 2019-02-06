@@ -1,6 +1,12 @@
-<%= link_to 'Create new tag', new_tag_path %>
-<% @tags.each do |tag| %>
-<%= tag.name %>
-<%= link_to 'Edit', edit_tag_path(tag) %>
+
+
+<% if current_user && current_user.admin?%>
+  <%= link_to 'Create new tag', new_tag_path %>
+    <% @tags.each do |tag| %>
+    <%= tag.name %>
+    <%= link_to 'Edit', edit_tag_path(tag) %>
+  <% end %>
+<% else %>
+  <p> You don't have permission to view this page </p>
 <% end %>
 

@@ -1,2 +1,7 @@
 <h1> Edit gallery </h1>
-<%= render 'form' %>
+<% if current_user && current_user.admin?%>
+  <%= render 'form' %>
+<% else %>
+  <p> You don't have permission to view this page </p>
+<% end %>
+
