@@ -4,7 +4,8 @@
   name: "Krzysztof Rupiński",
   admin: true
   )
-@user1.confirm
+@user1.skip_confirmation!
+@user1.save!
 
 @user2 = User.create!(
   email: "s11898@pjatk.edu.pl",
@@ -12,7 +13,8 @@
   name: "Adrian Powierża",
   admin: false
   )
-@user2.confirm
+@user2.skip_confirmation!
+@user2.save!
 
 10.times do |article|
   Article.create!(
