@@ -2,7 +2,8 @@
 <div><%= @picture.description %> </div>
 <p class="desc">
   <% @picture.tags.each do |tag| %>
-    <%= tag.name %>
+    <%= tag.name %> |
   <% end %>
+    <%= link_to 'Edit', edit_picture_path %>
  </p>
- <%= link_to 'Back to galleries', galleries_path%>
+ <p> <%= link_to 'Back to gallery', gallery_path(@picture.gallery_id)%> </p>

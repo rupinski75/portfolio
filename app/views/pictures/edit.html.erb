@@ -1,0 +1,7 @@
+<h1> Edit Picture </h1>
+<% if current_user && current_user.admin?%>
+  <%= render 'form', picture: @picture%>
+<% else %>
+  <p> You don't have permission to view this page </p>
+<% end %>
+

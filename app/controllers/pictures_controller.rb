@@ -13,13 +13,15 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    @tags_array = Tag.all.map { |tag| [tag.name, tag.id] }
   end
 
   def create
     @picture = Picture.new(picture_params)
-
+    @picture_tag = PictureTag.find(params: [:picture_id][:tag_id])
     respond_to do |format|
       if @picture.save
+        @picture_tag.pictures << @picture
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
       else
         format.html { render :new }
@@ -28,8 +30,11 @@ class PicturesController < ApplicationController
   end
 
   def update
+    @picture_tag = PictureTag.find(params: [:picture_id][:tag_id])
+    puts @picture_tag + "heeeeeeeere"
     respond_to do |format|
       if @picture.update(picture_params)
+        @picture_tag.pictures << @picture
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
       else
         format.html { render :edit }
@@ -50,6 +55,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:article).permit(:size, :image_link, :description)
+    params.require(:picture).permit(:size, :image_link, :description)
   end
 end

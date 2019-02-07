@@ -1,0 +1,37 @@
+<%= form_with model: picture, local: true, validate: true do |form| %>
+
+<% @picture.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :"Image link"%>
+    <%= form.text_field :image_link  %>
+  </div>
+
+  <% options_for_select(@tags_array) %>
+  <p><%= collection_select(:picture, :tag_ids, Tag.all, :id, :name) %></p>
+
+
+  <p><%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %></p>
+<!--   <ul>
+    <%= form.fields_for :pictures do |pictures_form|%>
+      <li>
+        <%= pictures_form.label :Image_link %>
+        <%= pictures_form.text_field :image_link %>
+        <%= pictures_form.label :Size %>
+        <%= pictures_form.text_field :size %>
+      </li>
+    <% end %>
+  </ul> -->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
