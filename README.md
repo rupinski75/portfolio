@@ -1,6 +1,6 @@
 # README
 
-Personal project for learning rails.
+Personal project for learning rails. Simple portfolio with ability to add blogs and galleries with mutiple pictures.
 
 * Ruby version
   2.6.0
