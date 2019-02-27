@@ -1,5 +1,6 @@
   <% if current_user.admin?%>
     <%= link_to 'Articles', articles_path%>
+    <%= link_to 'Comments', article_comments_path(1)%>
     <%= link_to 'Galleries', galleries_path%>
     <%= link_to 'Pictures', pictures_path%>
     <%= link_to 'Pictures tags', picture_tags_path%>

@@ -4,7 +4,8 @@
   <%= comment.body %>
   <%=  "article_id:  #{comment.article_id}" %>
   <%=  "user_id:  #{comment.user_id}" %>
-<%= link_to 'Edit', edit_article_comment_path(comment) %>
+  <%=  "comment_id:  #{comment.id}" %>
+<%= link_to 'Edit', edit_article_comment_path(comment.article_id, comment) %>
 </p>
 <% end %>
 

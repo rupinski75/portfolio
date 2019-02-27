@@ -41,9 +41,10 @@ before_action :set_comment, only: [:show, :update, :edit, :destroy]
   end
 
   def destroy
+    @article = Article.find(params[:article_id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to article_path(@article), notice: 'Comment was successfully destroyed.' }
     end
   end
 
