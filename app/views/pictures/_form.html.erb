@@ -9,7 +9,6 @@
     <%= form.text_field :size %>
   </div>
 
-
   <div class="field">
     <%= form.label :"Image link"%>
     <%= form.text_field :image_link  %>
@@ -17,7 +16,6 @@
 
   <% options_for_select(@tags_array) %>
   <p><%= collection_select(:picture, :tag_ids, Tag.all, :id, :name) %></p>
-
 
   <p><%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %></p>
 <!--   <ul>

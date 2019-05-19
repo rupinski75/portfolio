@@ -14,6 +14,9 @@ class PicturesController < ApplicationController
 
   def edit
     @tags_array = Tag.all.map { |tag| [tag.name, tag.id] }
+    # p "============================="
+    # p @tags_array
+    # p "============================="
   end
 
   def create
@@ -30,6 +33,7 @@ class PicturesController < ApplicationController
   end
 
   def update
+    p "============================================================"
     @picture_tag = PictureTag.find(params: [:picture_id][:tag_id])
     puts @picture_tag + "heeeeeeeere"
     respond_to do |format|
